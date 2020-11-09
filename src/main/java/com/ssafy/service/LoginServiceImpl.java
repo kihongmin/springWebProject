@@ -39,7 +39,6 @@ public class LoginServiceImpl implements LoginService {
 	}
 	@Override
 	public String login(User user) {
-		System.out.println(user);
 		return session.getMapper(LoginRepository.class).login(user);
 	}
 	

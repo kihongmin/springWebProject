@@ -27,8 +27,9 @@
 			<nav id="nav">
 				<% if(session.getAttribute("user")==null){ 
 				%>
-				<a href="login.jsp" id="nav_btn_login">LOGIN</a>
-				<a href="signup.jsp" id="nav_btn_signup">SIGN UP</a>
+				<a href="signin" id="nav_btn_login">LOGIN</a>
+				<a href="signup" id="nav_btn_signup">SIGN UP</a>
+				<a href="userhandler" id="nav_btn_signup">회원 관리</a>
 				<%}else{ %>
 				<a href="${root}/member.do?action=myInfo" id="nav_btn_mypage"><%= session.getAttribute("user")%>님!</a>
 				<a href="${root}/member.do?action=logout" id="nav_btn_logout">LOGOUT</a>

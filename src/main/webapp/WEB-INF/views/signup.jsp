@@ -46,7 +46,7 @@ $(function(){
 </head>
 <body>
 	<section>
-	<form action='${root}/signin' method='post'>
+	<form action='${root}/signup' method='post'>
 						<input type="hidden" name='action' value='register'>
 		<div id="signupContent" style="display: block">
 		<div class="container p-3 my-0"><h1>Join Member</h1></div>

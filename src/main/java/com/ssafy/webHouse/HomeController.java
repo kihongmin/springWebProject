@@ -2,7 +2,10 @@ package com.ssafy.webHouse;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -60,6 +63,42 @@ public class HomeController {
 	public String toSignUp() {
 		return "signup";
 	}
+	@GetMapping("/userhandler")
+	public String toUserhandler() {
+		return "userhandler";
+	}
+	@GetMapping("/changeUser")
+	public String toChangeUser() {
+		return "changeUser";
+	}
+	
+	
+	@GetMapping("/userList")
+	public String toSearchUser(Model m){
+		List<User> users = loginSvc.searchAll();
+		m.addAttribute("users", users);
+		return "userList";
+	}
+	@GetMapping("/deleteUser")
+	public String toDeleteUser() {
+		return "deleteUser";
+	}
+	
+	@PostMapping("/signup")
+	public String signup(User user) {
+		loginSvc.add(user);
+		return "index";
+	}
+	@PostMapping("/changeUser")
+	public String changeUser(User user) {
+		loginSvc.update(user);
+		return "index";
+	}
+	@PostMapping("/deleteUser")
+	public String deleteUser(String id) {
+		loginSvc.delete(id);
+		return "index";
+	}
 	
 	@PostMapping("/signin")
 	public String login(User user,
@@ -70,6 +109,6 @@ public class HomeController {
 		}else{
 			m.addAttribute("msg", "아이디 또는 패스워드를 확인하세요!");
 		}
-		return "change";
+		return "index";
 	}
 }

@@ -2,8 +2,29 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssafy.repository.LoginRepository">
-  <select id="login" resultType="String">
-    select pw from member where id=#{id}
+<mapper namespace="com.ssafy.repository.BookRepository">
+  <insert id="add">
+    insert into book (isbn,title,publisher,author,genre,price) values (#{isbn},#{title},#{publisher},#{author},#{genre},#{price})
+  </insert>
+  <select id="searchAll" resultType="com.ssafy.dto.Book">
+    select isbn,title,publisher,author,genre,price from book
   </select>
+  <select id="search" resultType="com.ssafy.dto.Book">
+    select isbn,title,publisher,author,genre,price from book where isbn=#{isbn}
+  </select>
+  <select id="searchByTitle" resultType="com.ssafy.dto.Book">
+    select isbn,title,publisher,author,genre,price from book where title like concat('%',#{title},'%')
+  </select>
+  <select id="searchByPublisher" resultType="com.ssafy.dto.Book">
+    select isbn,title,publisher,author,genre,price from book where publisher like concat('%',#{publisher},'%')
+  </select>           
+  <select id="searchByPrice" resultType="com.ssafy.dto.Book"><!-- &lt;= --><!-- <![CDATA[ <= ]]> -->
+    select isbn,title,publisher,author,genre,price from book where price<![CDATA[ <= ]]>#{price}
+  </select> 
+  <update id="update">
+    update Book set title=#{title},publisher=#{publisher},author=#{author},genre=#{genre},price=#{price} where isbn=#{isbn}
+  </update>
+  <delete id="delete">
+    delete from Book where isbn=#{isbn}
+  </delete>
 </mapper>

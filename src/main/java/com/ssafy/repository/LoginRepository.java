@@ -1,10 +1,17 @@
 package com.ssafy.repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
+import org.springframework.stereotype.Repository;
 
-public class LoginDAO {
+import com.ssafy.dto.User;
+
+@Repository
+public interface LoginRepository {
+	void add(User user);
+	List<User> searchAll();
+	User search(String id);
+	void update(User user);
+	void delete(String id);
+	String login(String id, String password);
 }

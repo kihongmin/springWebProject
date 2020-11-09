@@ -2,14 +2,16 @@ package com.ssafy.repository;
 
 import java.util.List;
 
-import com.ssafy.happyhouse.model.HouseInfoDto;
-import com.ssafy.happyhouse.model.SidoGugunCodeDto;
+import com.ssafy.dto.HouseInfo;
+import com.ssafy.dto.SidoGugunCode;
+import com.ssafy.dto.HouseInfo;
+import com.ssafy.dto.SidoGugunCode;
 
 public interface HouseMapDao {
 
-	List<SidoGugunCodeDto> getSido() throws Exception;
-	List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception;
-	List<HouseInfoDto> getDongInGugun(String gugun) throws Exception;
-	List<HouseInfoDto> getAptInDong(String dong) throws Exception;
+	List<SidoGugunCode> getSido() throws Exception;
+	List<SidoGugunCode> getGugunInSido(String sido) throws Exception;
+	List<HouseInfo> getDongInGugun(String gugun) throws Exception;
+	List<HouseInfo> getAptInDong(String dong) throws Exception;
 	
 }

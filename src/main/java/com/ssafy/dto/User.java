@@ -4,18 +4,22 @@ public class User {
 	private String id;
 	private String password;
 	private String name;
-	private String bitrh;
+	private String birth;
 	private String phone;
 	private String email;
 	private String address;
 	
 	public User() {};
-	public User(String id, String password, String name, String bitrh, String phone, String email, String address) {
+	public User(String id, String password) {
+		this.id = id;
+		this.password = password;
+	};
+	public User(String id, String password, String name, String birth, String phone, String email, String address) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
-		this.bitrh = bitrh;
+		this.birth = birth;
 		this.phone = phone;
 		this.email = email;
 		this.address = address;
@@ -38,11 +42,11 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBitrh() {
-		return bitrh;
+	public String getbirth() {
+		return birth;
 	}
-	public void setBitrh(String bitrh) {
-		this.bitrh = bitrh;
+	public void setbirth(String birth) {
+		this.birth = birth;
 	}
 	public String getPhone() {
 		return phone;
@@ -64,7 +68,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", name=" + name + ", bitrh=" + bitrh + ", phone=" + phone
+		return "User [id=" + id + ", password=" + password + ", name=" + name + ", birth=" + birth + ", phone=" + phone
 				+ ", email=" + email + ", address=" + address + "]";
 	}
 	

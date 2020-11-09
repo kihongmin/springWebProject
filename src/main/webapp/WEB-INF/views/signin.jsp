@@ -10,14 +10,14 @@
 <script type="text/javascript">
 $(function(){
 	$('form').submit(function(){
-		if($('#pid').val().length==0){
+		if($('#id').val().length==0){
 			alert('아이디 확인!!!');
-			$('#pid').focus();
+			$('#id').focus();
 			return false;
 		}
-		if($('#pwd').val().length==0){
+		if($('#password').val().length==0){
 			alert('패스워드 확인!!!');
-			$('#pwd').focus();
+			$('#password').focus();
 			return false;
 		}
 	});
@@ -26,9 +26,9 @@ $(function(){
 </head>
 <body>
 <h1>로그인</h1>
-<form action='${root}/login' method='post'>
-아이디 : <input type='text' name='pid' id='pid' value="ssafy"><br>
-패스워 : <input type="password" name='pwd' id='pwd' value="111"><br>
+<form action='${root}/signin' method='post'>
+아이디 : <input type='text' name='pid' id='id' value="ssafy"><br>
+패스워 : <input type="password" name='pwd' id='password' value="111"><br>
 <input type="submit" value='Login'>
 </form>
 </body>

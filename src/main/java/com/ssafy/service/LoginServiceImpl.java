@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ssafy.dto.User;
 import com.ssafy.repository.LoginRepository;
 
+@Service
 public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private SqlSession session;
@@ -36,8 +38,9 @@ public class LoginServiceImpl implements LoginService {
 		session.getMapper(LoginRepository.class).delete(id);
 	}
 	@Override
-	public String login(String id, String password) {
-		return session.getMapper(LoginRepository.class).login(id, password);
+	public String login(User user) {
+		System.out.println(user);
+		return session.getMapper(LoginRepository.class).login(user);
 	}
 	
 }

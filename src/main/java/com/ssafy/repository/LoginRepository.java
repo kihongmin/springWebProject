@@ -13,5 +13,5 @@ public interface LoginRepository {
 	User search(String id);
 	void update(User user);
 	void delete(String id);
-	String login(String id, String password);
+	String login(User user);
 }

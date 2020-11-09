@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ssafy.dto.User;
 import com.ssafy.service.LoginService;
 
 /**
@@ -32,28 +34,42 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+	
+	  @RequestMapping(value = "/", method = RequestMethod.GET) 
+	  public String home(Locale locale, Model model) {
+		  logger.info("Welcome home! The client locale is {}.", locale);
+		  
+		  Date date = new Date(); DateFormat dateFormat =
+		  DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		  
+		  String formattedDate = dateFormat.format(date);
+		  
+		  model.addAttribute("serverTime", formattedDate );
+		  
+		 return "index";
+	}
+	 
+
+	
+	@GetMapping("/signin")
+	public String toSignIn() {
+		return "signin";
+	}
+	  
+	@GetMapping("/signup")
+	public String toSignUp() {
 		return "signup";
 	}
 	
-	@PostMapping("/login")
-	public String login(String pid,String pwd,Model m,HttpSession hs){
-		String user=loginSvc.login(pid,pwd);
-		if(user!=null) {
-			hs.setAttribute("user", user);
+	@PostMapping("/signin")
+	public String login(User user,
+			Model m,HttpSession hs){
+		String name=loginSvc.login(user);		
+		if(name == null) {
+			hs.setAttribute("user", name);
 		}else{
 			m.addAttribute("msg", "아이디 또는 패스워드를 확인하세요!");
 		}
-		return "index";
+		return "change";
 	}
 }

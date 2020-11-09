@@ -1,0 +1,72 @@
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
+
+#container {
+	padding: 2em 0 0 0;
+	background: #f3f3f3; /* 서영 추가 부분 */
+}
+
+
+#container > h3 {
+	left : 50%;
+}
+
+.select-wrapper {
+/* 	left : 50%; */
+	margin-left : auto;
+	margin-right :auto;
+	display : inline-block;
+	width : 200px;
+	height : 70px;
+
+}
+
+#container #search {
+	display : inline-block;
+	width : 400px;
+}
+
+#container #checkbox .checkbox_search{
+	display : inline-block;
+	margin-left : 3%;
+	margin-right : 3%;
+	font-size : 15px;
+}
+#showmap {
+
+	/* background-color: #e5474b;
+	color: #f2a3a5; */
+	padding: 0 1em 2em 1em;
+/* 	background-color: #0c0c0c; */
+/* 	background-image: url("images/지도사진.JPG"); */
+/* 	background-size: cover; */
+/* 	background-repeat: no-repeat;
+	background-position: 15% left;
+	text-align: left;
+	position: relative;
+	z-index: 9999; */
+}
+
+#showlist {
+
+	width : 30%;
+	text-align : left;
+	float : left;
+}
+
+#showmain {
+/* 	display : inline-block; */
+	width : 70%;
+	float : right;
+	padding : 0 0 0 1.5em;
+}
+
+#showmain #mapimage {
+	width : 1200px; height : auto;
+	max-height : 600px;
+	float : right;
+}
+
+#showmap #showlist .table-wrapper {
+	font-size : 13px;
+}
